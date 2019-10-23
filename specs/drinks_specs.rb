@@ -9,11 +9,11 @@ class TestDrinks < MiniTest::Test
 
   def setup
 
-    @customer1 = Customer.new("Yousef", 10, 17)
-    @customer2 = Customer.new("Morgaine", 20, 26)
-    @drink1 = Drink.new("beer", 2)
-    @drink2 = Drink.new("wine", 4)
-    @drink3 = Drink.new("coke", 3)
+    @customer1 = Customer.new("Yousef", 10, 17, 0)
+    @customer2 = Customer.new("Morgaine", 20, 26, 5)
+    @drink1 = Drink.new("beer", 2, 1)
+    @drink2 = Drink.new("wine", 4, 3)
+    @drink3 = Drink.new("coke", 3, 0)
 
     @drinks = [@drink1, @drink2, @drink3]
 
