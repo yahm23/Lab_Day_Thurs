@@ -14,12 +14,10 @@ end
 
 
 def buy_drink(pub, drink)
-  if @drunkenness + drink.alcohol_level < 10
-    if @age > 17
-      @wallet -= drink.price
-      pub.sell_drink_legally(@age, drink)
-      @drunkenness += drink.alcohol_level
-    end
+  outcome = pub.sell_drink_legally(@age,@drunkenness, drink)
+  if outcome != "Service refused"
+    @wallet -= drink.price
+    @drunkenness += drink.alcohol_level
   end
 end
 

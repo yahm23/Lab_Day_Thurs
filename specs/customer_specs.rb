@@ -40,7 +40,7 @@ class TestCustomer < MiniTest::Test
 
   def test_buy_drink_underage
     @customer1.buy_drink(@pub, @drink2)
-    assert_equal(10, @customer1.wallet)
+    assert_equal(10, @customer1.wallet)#
     assert_equal(100, @pub.till)
   end
 
@@ -54,7 +54,7 @@ class TestCustomer < MiniTest::Test
   def test_reject_drunk
     @customer1.buy_drink(@pub,@drink2)
     assert_equal(100, @pub.till)
-    assert_equal(7, @customer1.drunkenness)
+    assert_equal(7, @customer1.drunkenness)#
   end
 
   def test_rejection_not_drunk_underage
@@ -62,6 +62,13 @@ class TestCustomer < MiniTest::Test
     assert_equal(100, @pub.till)
     assert_equal(0, @customer3.drunkenness)
   end
+
+  def test_underage_softdrink_buy
+    @customer3.buy_drink(@pub,@drink3)
+    assert_equal(103, @pub.till)
+    assert_equal(0, @customer3.drunkenness)#
+  end
+
 
 
 end

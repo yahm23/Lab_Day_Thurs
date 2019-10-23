@@ -39,13 +39,13 @@ class TestPub < MiniTest::Test
 
 
   def test_service_refused
-    @pub.sell_drink_legally(@customer1.age, @drink1)
+    @pub.sell_drink_legally(@customer1.age, @customer1.drunkenness, @drink1)
     assert_equal(100, @pub.till)
   end
 
 
   def test_service_allowed
-    @pub.sell_drink_legally(@customer2.age, @drink1)
+    @pub.sell_drink_legally(@customer2.age, @customer2.drunkenness, @drink1)
     assert_equal(102, @pub.till)
   end
 
