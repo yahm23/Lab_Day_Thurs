@@ -9,8 +9,8 @@ class TestDrinks < MiniTest::Test
 
   def setup
 
-    @customer1 = Customer.new("Yousef", 10)
-    @customer2 = Customer.new("Morgaine", 20)
+    @customer1 = Customer.new("Yousef", 10, 17)
+    @customer2 = Customer.new("Morgaine", 20, 26)
     @drink1 = Drink.new("beer", 2)
     @drink2 = Drink.new("wine", 4)
     @drink3 = Drink.new("coke", 3)
@@ -30,7 +30,7 @@ class TestDrinks < MiniTest::Test
 
   def test_drink_price
     assert_equal(3, @drink3.price)
-  end 
+  end
 
 
 

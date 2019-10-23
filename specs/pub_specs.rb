@@ -11,8 +11,8 @@ class TestPub < MiniTest::Test
   def setup
 
 
-    @customer1 = Customer.new("Yousef", 10)
-    @customer2 = Customer.new("Morgaine", 20)
+    @customer1 = Customer.new("Yousef", 10, 17)
+    @customer2 = Customer.new("Morgaine", 20, 26)
     @drink1 = Drink.new("beer", 2)
     @drink2 = Drink.new("wine", 4)
     @drink3 = Drink.new("coke", 3)
@@ -38,11 +38,19 @@ class TestPub < MiniTest::Test
   end
 
 
+  def test_service_refused
+    @pub.sell_drink_legally(@customer1.age, @drink1)
+    assert_equal(100, @pub.till)
+  end
 
-  def test_sell_drink
-    @pub.sell_drink(@drink1)
+
+  def test_service_allowed
+    @pub.sell_drink_legally(@customer2.age, @drink1)
     assert_equal(102, @pub.till)
   end
+
+
+
 
 
   end
